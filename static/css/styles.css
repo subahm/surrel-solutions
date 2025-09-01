@@ -1,0 +1,317 @@
+
+:root{
+  --bg:#0b0f1a;
+  --panel:#12172a;
+  --panel-2:#1a2140;
+  --text:#e6ecff;
+  --muted:#a9b3d1;
+  --brand:#7c5cff;
+  --brand-2:#00e0b8;
+  --danger:#ff6b6b;
+  --success:#24c08e;
+  --shadow:0 10px 30px rgba(0,0,0,.25);
+  --radius:16px;
+  --methodology-select: #101e59;
+}
+*{box-sizing:border-box}
+html,body{padding:0;margin:0;background:linear-gradient(180deg,#111633,#0b0f1a);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+img{max-width:100%;height:auto}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1100px,92%);margin:0 auto}
+.small{font-size:.9rem;color:var(--muted)}
+.grid{display:grid;gap:2rem}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.brand{display:flex;align-items:center;color:var(--text);font-weight:600;font-size:1.1rem}
+.site-header{position:sticky;top:0;background:rgba(11,15,26,.75);backdrop-filter:blur(8px);z-index:20;border-bottom:1px solid rgba(255,255,255,.06)}
+.site-nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+.site-nav a{display:block;padding:.5rem .75rem;border-radius:10px}
+.site-nav a:hover{background:var(--panel)}
+.nav-toggle{display:none;background:transparent;border:0;color:var(--text);font-size:1.5rem}
+
+.hero{padding:6rem 0;background:radial-gradient(1200px 600px at 20% -10%, rgba(124,92,255,.25), transparent), radial-gradient(800px 400px at 80% 0%, rgba(0,224,184,.2), transparent)}
+.hero h1{font-size:clamp(4rem,5vw,3.25rem);line-height:1.15;margin:0 0 1rem}
+.hero p{max-width:800px;color:var(--muted);margin:0 0 2rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#060914;font-weight:700;border:0;padding:.85rem 1.2rem;border-radius:12px;box-shadow:var(--shadow);transition:transform .08s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--text)}
+
+.trusted{padding:2rem 0}
+.trusted h2{font-size:1rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.logo-row{list-style:none;display:flex;gap:2rem;flex-wrap:wrap;margin:1rem 0 0;padding:0;opacity:.85}
+.logo-row li{background:var(--panel);padding:.5rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,.06)}
+
+.services{padding:3rem 0}
+.grid.cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:linear-gradient(180deg,var(--methodology-select),var(--panel-2));border:1px solid rgba(255,255,255,.07);padding:1.25rem;border-radius:var(--radius);box-shadow:var(--shadow)}
+.card h3{margin:.25rem 0 .5rem}
+.card p{color:var(--muted);margin:0 0 .5rem}
+.card ul{margin:0 0 1rem 1.2rem}
+.card-cta{font-weight:600}
+
+.cta{padding:3rem 0}
+.cta-inner{background:linear-gradient(135deg,rgba(124,92,255,.2),rgba(0,224,184,.2));border:1px solid rgba(255,255,255,.1);padding:2rem;border-radius:var(--radius);display:grid;gap:1rem;place-items:start}
+
+.page-hero{padding:4rem 0;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
+.page-hero h1{margin:0 0 .5rem}
+.page-hero p{color:var(--muted)}
+
+.service-sections{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+.service-block{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid rgba(255,255,255,.07);padding:1.25rem;border-radius:var(--radius)}
+.service-block .lead{color:var(--muted)}
+
+.methodology{padding:3rem 0}
+.methodology h2 {
+  font-size: 3rem;       /* Increase size (adjust as needed) */
+  margin-bottom: -4rem;   /* Reduce gap below heading */
+  text-align: center;    /* Keep centered */
+}
+
+.about-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+.bullet{margin-left:1.1rem}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.stat{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:1rem;text-align:center}
+.stat span{display:block;font-weight:800;font-size:1.4rem}
+
+.site-footer{margin-top:3rem;padding:3rem 0 0;border-top:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#0b0f1a,#0b0f1a)}
+.site-footer .grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.list-plain{list-style:none;margin:0;padding:0}
+.contact-form{display:grid;gap:.75rem}
+.form-field{display:grid;gap:.35rem}
+.form-field input,.form-field textarea{background:#0e1428;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:.7rem;color:var(--text)}
+.form-field input:focus,.form-field textarea:focus{outline:2px solid var(--brand-2);border-color:transparent}
+.form-hint{color:var(--muted);font-size:.85rem;margin:.25rem 0 0}
+.footer-bottom{margin-top:2rem;border-top:1px solid rgba(255,255,255,.08);padding:1rem 0;color:var(--muted)}
+
+.flash-wrap{padding:1rem 0}
+.flash{padding:.8rem 1rem;border-radius:12px;margin:.5rem 0;border:1px solid transparent}
+.flash.success{background:rgba(36,192,142,.15);border-color:rgba(36,192,142,.35)}
+.flash.error{background:rgba(255,107,107,.15);border-color:rgba(255,107,107,.35)}
+
+@media (max-width: 880px){
+  .site-nav{position:fixed;inset:64px 0 auto 0;background:rgba(10,12,22,.98);translate:0 -120%;transition:translate .2s ease;border-bottom:1px solid rgba(255,255,255,.06)}
+  .site-nav.open{translate:0 0}
+  .site-nav ul{flex-direction:column;padding:1rem}
+  .nav-toggle{display:block}
+}
+
+/* Flip letters animation */
+.flip-word {
+  display: inline-block;
+  perspective: 1000px;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.flip-letter {
+  display: inline-block;
+  transition: transform 0.6s ease-in-out;
+  transform-origin: center;
+}
+.flip-letter.flip {
+  transform: rotateX(180deg);
+}
+
+.methodology-container{
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color */
+  font-weight: bold; /* Make text bold */
+}
+
+.methodology {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  justify-content: center;
+  align-items: center;
+}
+.svg-container {
+    height: 100%;
+    width: 60%;
+    /*background: red;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centering using transform */
+    transition: transform 0.5s ease, left 0.5s ease;
+}
+
+.svg-container.moved {
+  left: 0;
+  transform: translate(0, -50%);
+
+}
+
+svg{
+  /*position: relative;*/
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  transform: translate(0%, 0%) scale(2.3); /* Adjust the scale factor as needed*/
+  transition: fill 0.3s ease; /* Smooth transition for color changes */
+}
+
+.text-element {
+  /*height: 80%;*/
+  height: fit-content;
+  width: 47%;
+  border-radius: 2%;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: linear-gradient(180deg,var(--methodology-select),var(--panel-2));
+  position: absolute;
+  top: 50%;
+  right: -50%;
+  object-fit: contain;
+  transform: translate(100%, -50%);
+  transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.5s ease;
+  padding: 2vw; /* Responsive padding */
+  box-sizing: border-box;
+  text-align: left; /* Aligns text within each line */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.text-element:hover{
+  transform: scale(2);
+  z-index: 50000;
+  cursor: pointer;
+  box-shadow: 12px 12px 12px rgba(7, 25, 82, 0.6), -10px -10px 10px rgba(235, 244, 246, 0.8);
+
+}
+.text-element::after{
+  content: "";
+  background-color: #EBF4F6;
+  border-radius: 10%;
+  height: 5px;
+  width: 50%;
+  position: absolute;
+  right: 25%;
+  bottom: 0;
+  transition: all 0.4s ease;
+  transform: scale(0);
+}
+
+.text-element:hover::after{
+  transform: scale(1);
+}
+
+/* Styling for <p> elements */
+.text-element p {
+  font-size: clamp(1rem, 1.6vw, 1rem);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #d4d4d4; /* Light color for better readability */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+  max-width: 100%; /* Prevents text from exceeding container width */
+  overflow-wrap: break-word; /* Wraps text within the container */
+  object-fit: contain;
+  flex-shrink: 1;
+}
+
+/* Styling for <li> elements */
+.text-element ul {
+  list-style: disc inside; /* Makes list items with a disc inside the text box */
+  padding-left: 1rem; /* Adds padding for better spacing */
+  margin: 0; /* Remove margin to prevent overflow */
+  max-width: 100%; /* Prevents text from exceeding container width */
+  font-size: clamp(0.7rem, 1.6vw, 1rem);
+  flex-shrink: 1;
+}
+
+.text-element li {
+  font-size: clamp(0.7rem, 1.6vw, 1rem);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: #d4d4d4; /* Light blue color for list items */
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+  overflow-wrap: break-word; /* Wraps text within the container */
+  flex-shrink: 1;
+}
+
+
+.text-element.visible {
+  right: 0; /* Move into the container */
+  transform: translate(0, -50%); /* Correct centering */
+  opacity: 1; /* Make it visible */
+}
+
+/* Hover effect for element with ID <> */
+#planning-partition {
+    cursor: pointer; /* Change cursor to pointer for the entire group */
+}
+#planning-partition:hover #planning,
+#planning-partition.active #planning{
+    fill: var(--methodology-select); /* Change color on hover */
+}
+
+#design-partition {
+    cursor: pointer; /* Change cursor to pointer for the entire group */
+}
+#design-partition:hover #Designing,
+#design-partition.active #Designing{
+    fill: var(--methodology-select); /* Change color on hover */
+}
+
+#svg_14:hover,
+#svg_14.active #svg_14{
+    fill: var(--methodology-select); /* Change color on hover */
+    cursor: pointer; /* Optional: change cursor to pointer */
+}
+
+#testing-partition {
+    cursor: pointer; /* Change cursor to pointer for the entire group */
+}
+#testing-partition:hover #Testing,
+#testing-partition.active #Testing{
+    fill: var(--methodology-select); /* Change color on hover */
+}
+
+#deployment-partition {
+    cursor: pointer; /* Change cursor to pointer for the entire group */
+}
+#deployment-partition:hover #svg_11,
+#deployment-partition.active #svg_11{
+    fill: var(--methodology-select); /* Change color on hover */
+}
+
+#maintenance-partition {
+    cursor: pointer; /* Change cursor to pointer for the entire group */
+}
+#maintenance-partition:hover #svg_9,
+#maintenance-partition.active #svg_9{
+    fill: var(--methodology-select); /* Change color on hover */
+}
+
+#req-gathering-partition {
+    cursor: pointer; /* Change cursor to pointer for the entire group */
+}
+
+#req-gathering-partition:hover #svg_7,
+#req-gathering-partition.active #svg_7{
+/*#req-gathering:hover{*/
+    fill: var(--methodology-select); /* Change color on hover */
+}
+.active {
+    fill: var(--methodology-select); /* Change this to the desired active color */
+}

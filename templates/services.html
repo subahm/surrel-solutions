@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1>Services</h1>
+    <p>From strategy to shipping, we partner with you to deliver outcomes—not just artifacts.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container grid service-sections">
+    {% for s in services %}
+    <article id="{{ s.title | replace(' ', '-') }}" class="service-block">
+      <h2>{{ s.title }}</h2>
+      <p class="lead">{{ s.summary }}</p>
+      <ul class="bullet">
+        {% for p in s.points %}
+        <li>{{ p }}</li>
+        {% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Not sure where to start?</h2>
+      <p>Book a free discovery call. We'll map your current state and recommend pragmatic next steps.</p>
+      <a href="#contact" class="btn">Book a discovery call</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
