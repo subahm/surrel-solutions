@@ -44,7 +44,23 @@ a:hover{text-decoration:underline}
 
 .services{padding:3rem 0}
 .grid.cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.card{background:linear-gradient(180deg,var(--methodology-select),var(--panel-2));border:1px solid rgba(255,255,255,.07);padding:1.25rem;border-radius:var(--radius);box-shadow:var(--shadow)}
+/*.card{background:linear-gradient(180deg,var(--methodology-select),var(--panel-2));border:1px solid rgba(255,255,255,.07);padding:1.25rem;border-radius:var(--radius);box-shadow:var(--shadow)}*/
+.card {
+  background: linear-gradient(180deg, var(--methodology-select), var(--panel-2));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transform-style: preserve-3d;
+  transform: rotateY(90deg); /* start rotated */
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.card.show {
+  transform: rotateY(0deg); /* rotate into view */
+  opacity: 1;
+}
 .card h3{margin:.25rem 0 .5rem}
 .card p{color:var(--muted);margin:0 0 .5rem}
 .card ul{margin:0 0 1rem 1.2rem}
@@ -57,7 +73,24 @@ a:hover{text-decoration:underline}
 .page-hero h1{margin:0 0 .5rem}
 .page-hero p{color:var(--muted)}
 
-.service-sections{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start; padding-block-end: 5%;}
+/*.service-sections{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start; padding-block-end: 5%;}
+*/
+.service-block.card {
+  background: linear-gradient(180deg, var(--methodology-select), var(--panel-2));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transform: translateX(-100px); /* start off-screen to the left */
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.service-block.card.show {
+  transform: translateX(0); /* slide into place */
+  opacity: 1;
+}
+
 .service-block{background:linear-gradient(180deg,var(--methodology-select),var(--panel-2));border:1px solid rgba(255,255,255,.07);padding:1.25rem;border-radius:var(--radius)}
 .service-block .lead{color:var(--muted)}
 
@@ -344,10 +377,23 @@ svg{
   gap: 2rem;
 }
 
-.partner-points .point {
-  background: linear-gradient(180deg,var(--methodology-select),var(--panel-2));
+/* Keep the grid item styling, now also for .card */
+.partner-points .point,
+.partner-points .point.card {
+  background: linear-gradient(180deg, var(--methodology-select), var(--panel-2));
   padding: 1.5rem;
   border-radius: 1.5rem;
+
+  /* Flip animation */
+  transform-style: preserve-3d;
+  transform: rotateY(90deg); /* start flipped */
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.partner-points .point.card.show {
+  transform: rotateY(0deg);
+  opacity: 1;
 }
 
 .partner-points .point h3 {
@@ -358,5 +404,5 @@ svg{
 
 .partner-points .point p {
   line-height: 1.6;
-  color: #f0f0f0;
+  color: var(--text);
 }

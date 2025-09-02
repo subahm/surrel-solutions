@@ -164,3 +164,60 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Element with ID svgContainer not found.');
     }
 });
+
+
+function initCardFlipAnimation() {
+  const cards = document.querySelectorAll('.card');
+
+  // Disconnect previous observer if it exists
+  if (window.cardObserver) {
+    window.cardObserver.disconnect();
+  }
+
+  // Create a new observer
+  window.cardObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        window.cardObserver.unobserve(entry.target); // stop observing once animated
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  // Observe each card
+  cards.forEach(card => {
+    window.cardObserver.observe(card);
+
+    // Fallback: if card is already in viewport on load
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      card.classList.add('show');
+      window.cardObserver.unobserve(card);
+    }
+  });
+}
+
+// Call on DOM load
+document.addEventListener('DOMContentLoaded', initCardFlipAnimation);
+
+// Call the function after DOM is loaded
+function initServiceSlideIn() {
+  const cards = document.querySelectorAll('.service-block.card');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  cards.forEach(card => observer.observe(card));
+}
+
+// Initialize when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', initServiceSlideIn);

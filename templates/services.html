@@ -10,9 +10,9 @@
 </section>
 
 <section>
-  <div class="container grid service-sections">
+  <div class="container grid">
     {% for s in services %}
-    <article id="{{ s.title | replace(' ', '-') }}" class="service-block">
+    <article id="{{ s.title | replace(' ', '-') }}" class="service-block card">
       <h2>{{ s.title }}</h2>
       <p class="lead">{{ s.summary }}</p>
       <ul class="bullet">
@@ -27,7 +27,7 @@
 
 <section>
   <div class="container">
-    <h2>Strategic Add-On Services</h2>
+    <h2 style="margin-top: 6rem;">Strategic Add-On Services</h2>
     <h3>Beyond our core capabilities, we also offer:</h3>
         <dl>
           <li>IT Consulting</li>
@@ -47,22 +47,22 @@
   <div class="container">
     <h2 class="section-title">Why Partner with Surrel Solutions?</h2>
     <div class="partner-points">
-      <div class="point">
+      <div class="point card">
         <h3>Collaborative Approach</h3>
         <p>We work closely with you at every stage - from discovery through delivery - to ensure alignment and transparency.</p>
       </div>
 
-      <div class="point">
+      <div class="point card">
         <h3>Agile & Results-Driven</h3>
         <p>Using agile methodology, we prioritize rapid iteration and early wins, delivering functional increments that evolve with your feedback.</p>
       </div>
 
-      <div class="point">
+      <div class="point card">
         <h3>Reliability & Excellence</h3>
         <p>Our focus on quality-driven engineering and robust testing practices ensures dependable solutions built to last.</p>
       </div>
 
-      <div class="point">
+      <div class="point card">
         <h3>Adaptability & Support</h3>
         <p>From launching your solution to its long-term evolution, we’re here to support your growth every step of the way.</p>
       </div>
