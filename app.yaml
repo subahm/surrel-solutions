@@ -1,0 +1,8 @@
+runtime: python310  # Python version
+
+# Entry point: <filename without .py>:<Flask app object name>
+entrypoint: gunicorn -b :$PORT app:app
+
+# Optional automatic scaling
+automatic_scaling:
+  min_instances: 1

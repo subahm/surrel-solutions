@@ -57,8 +57,8 @@ a:hover{text-decoration:underline}
 .page-hero h1{margin:0 0 .5rem}
 .page-hero p{color:var(--muted)}
 
-.service-sections{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
-.service-block{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid rgba(255,255,255,.07);padding:1.25rem;border-radius:var(--radius)}
+.service-sections{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start; padding-block-end: 5%;}
+.service-block{background:linear-gradient(180deg,var(--methodology-select),var(--panel-2));border:1px solid rgba(255,255,255,.07);padding:1.25rem;border-radius:var(--radius)}
 .service-block .lead{color:var(--muted)}
 
 .methodology{padding:3rem 0}
@@ -314,4 +314,49 @@ svg{
 }
 .active {
     fill: var(--methodology-select); /* Change this to the desired active color */
+}
+
+.Service-title{
+  font-size: 3rem;
+}
+
+.container dd {
+  margin-left: 0;
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.partner-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 2vw;
+}
+
+.partner-section .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.partner-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.partner-points .point {
+  background: linear-gradient(180deg,var(--methodology-select),var(--panel-2));
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+}
+
+.partner-points .point h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.partner-points .point p {
+  line-height: 1.6;
+  color: #f0f0f0;
 }

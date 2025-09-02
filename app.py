@@ -6,10 +6,15 @@ import os
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-change-me")
+app.url_map.strict_slashes = False
 
 # Ensure data dir exists for contact submissions
-DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+#DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+#os.makedirs(DATA_DIR, exist_ok=True)
+
+DATA_DIR = '/tmp/data'
 os.makedirs(DATA_DIR, exist_ok=True)
+
 CONTACT_CSV = os.path.join(DATA_DIR, "contact_submissions.csv")
 
 NAV = [
@@ -22,7 +27,7 @@ SERVICES = [
     {
         "icon": "code",
         "title": "Web Development",
-        "summary": "High-performance websites and web apps tailored to your business goals.",
+        "summary": "Crafting responsive, engaging websites—from sleek single-page sites to robust e-commerce platforms—that amplify your brand presence and drive customer engagement.",
         "points": [
             "Responsive, accessible UI/UX",
             "SEO-friendly, fast-loading pages",
@@ -33,7 +38,7 @@ SERVICES = [
     {
         "icon": "cloud",
         "title": "Cloud Migration",
-        "summary": "Plan, migrate, and optimize workloads on the cloud with zero drama.",
+        "summary": "Seamless, secure migration of data and applications to the cloud. We handle migration strategy, execution, and optimization to boost scalability and performance while controlling costs.",
         "points": [
             "GCP-first architectures (multi-cloud ready)",
             "Lift-and-shift & replatform strategies",
@@ -44,18 +49,18 @@ SERVICES = [
     {
         "icon": "repeat",
         "title": "CI/CD",
-        "summary": "Automated, reliable delivery pipelines from commit to production.",
+        "summary": "Streamlined DevOps workflows featuring automated testing, integration, and deployment, enabling rapid iteration and higher software quality with minimal manual overhead.",
         "points": [
             "GitHub Actions, GitLab CI, Cloud Build",
             "Automated testing & quality gates",
             "Blue/green & canary deployments",
-            "Artifact/version management"
+            "Reduced manual configuration errors"
         ]
     },
     {
         "icon": "smartphone",
         "title": "App Development",
-        "summary": "Robust mobile and desktop apps with cloud backends.",
+        "summary": "Bespoke web and mobile app development aligned with your business goals. Our user-centric process ensures intuitive interfaces, robust functionality, and seamless performance.",
         "points": [
             "Native & cross-platform frontends",
             "Scalable APIs & microservices",
@@ -66,7 +71,7 @@ SERVICES = [
     {
         "icon": "bar-chart",
         "title": "Data Analytics",
-        "summary": "Turn data into decisions with modern analytics solutions.",
+        "summary": "Unlock the power of your data through advanced analysis and visualization. We help you make data-driven decisions that optimize operations, deepen customer understanding, and fuel growth.",
         "points": [
             "Data pipelines & warehousing",
             "Real-time dashboards",
@@ -77,7 +82,7 @@ SERVICES = [
     {
         "icon": "shield",
         "title": "Security Consulting",
-        "summary": "Practical security engineering aligned to your risk and budget.",
+        "summary": "In-depth security assessments that identify vulnerabilities and deliver clear, strategic recommendations—so you can protect your systems, comply with industry standards, and operate with confidence.",
         "points": [
             "Threat modeling & hardening",
             "Identity & access management",
@@ -85,6 +90,21 @@ SERVICES = [
             "Compliance enablement"
         ]
     },
+]
+
+additional_services = [
+    {
+        "title": "IT Consulting",
+        "description": "Expert advice and strategic roadmaps to align technology initiatives with business objectives."
+    },
+    {
+        "title": "Digital Marketing",
+        "description": "Amplify your reach with targeted SEO, content strategy, and performance-driven campaigns."
+    },
+    {
+        "title": "Technical Training",
+        "description": "Empower your team through customized training programs tailored to your technology stack and business needs."
+    }
 ]
 
 @app.context_processor
@@ -129,4 +149,6 @@ def contact():
     return redirect(request.referrer or url_for("home"))
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))  # Use GCP PORT if set, otherwise default to 5000
+    app.run(host="0.0.0.0", port=port, debug=True)
