@@ -221,3 +221,21 @@ function initServiceSlideIn() {
 
 // Initialize when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', initServiceSlideIn);
+
+
+//Founder section
+document.addEventListener("DOMContentLoaded", () => {
+  // Animate founder cards with sliding effect on scroll
+  const founderCards = document.querySelectorAll(".founder-card");
+
+  const founderObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add("animate"); // Add the animate class
+              founderObserver.unobserve(entry.target); // Stop observing after animation
+          }
+      });
+  });
+
+  founderCards.forEach((card) => founderObserver.observe(card));
+});
