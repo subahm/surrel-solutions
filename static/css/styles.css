@@ -483,13 +483,24 @@ svg {
     aspect-ratio: 1 / 1;
 }
 
+.founder-image {
+    width: 250px;   /* or whatever size you want */
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
 .founder-image img {
     width: 100%;
     height: 100%;
+    object-fit: cover; /* crop to fit circle */
     border-radius: 50%;
-    object-fit: cover;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    image-rendering: -webkit-optimize-contrast; /* improves sharpness on some browsers */
+    image-rendering: crisp-edges;               /* fallback */
 }
+
+
 
 .founder-info {
     flex: 1;
